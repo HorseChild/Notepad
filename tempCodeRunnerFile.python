@@ -1,1 +1,50 @@
-print("Hello World!")
+import customtkinter as ctk
+from datetime import datetime, timedelta
+import calendar
+
+class ModernCalendarApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+
+        self.title("Modern Calendar")
+        self.geometry("900x700")
+
+        ctk.set_appearance_mode("dark")
+        ctk.set_default_color_theme("blue")
+
+        self.bg_primary = "#0f0f23"
+        self.bg_secondary = "#1a1a2e"
+        self.accent_purple = "#6d28d9"
+        self.accent_pink = "#ec4899"
+        self.card_bg = "#16213e"
+
+        self.current_data = datetime.now()
+        self.selected_date = None
+        self.events = {}
+
+        self.create_header()
+        self.create_calendar_grid()
+        self.create_event_panel()
+
+        self.display_month()
+    def create_header(self):
+        header_frame = ctk.CTkFrame(self, fg_color="transparent")
+        header_frame.pack(pady=20, padx=20, fill="x")
+
+        self.prev_btn = ctk.CTkButton(
+            header_frame, text="←", width = 50, font=('Arial', 20, 'bold')
+            command = self.previous_month, fg_color = self.accent_purple
+        )
+        self.prev_btn.pack(side=left, padx=10)
+
+        self.month_year_label = ctk.CTklabel(
+            header_frame, text="", font=("Arial", 28, "bold")
+            command=self.go_to_today, fg_color=self.accent_pink
+        )
+        self.today_btn.pack(side="left", padx=10)
+
+        self.next_btn = ctk.CTkButton(
+            header_frame, text="→", width = 50, font=('Arial', 20, 'bold')
+            command = self.previous_month, fg_color = self.accent_purple
+        )
+        self.next_btn.pack(side=left, padx=10)
