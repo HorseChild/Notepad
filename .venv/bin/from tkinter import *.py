@@ -11,6 +11,7 @@ root.geometry("400x300")
 root.title("Pomodoro Timer")
 style = Style(theme="Simplex")
 style.theme_use()
+root.mainloop()
 
 mainframe = ttk.Frame(root, padding=(10, 10, 10, 10))
 mainframe.grid(column=5, row=5, sticky=(N, W, E, S))
