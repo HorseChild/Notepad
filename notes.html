@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notes.css">
+    <script src="notes.js"> </script>
+    <title>Quick Notes</title>
+</head>
+<body>
+    <header>
+        <h1> Quick Notes <h1>
+            <div class="buttons">
+                <button id="addNote" class="btn" onClick="openNoteDialog()"> + Add Note </button>
+                <button id="toggleTheme" class="btn"> 🌙 </button>
+            </div>
+    </header>
+    <main id="notesContainer" class="notes-grid"></main></main>
+    <dialog id="noteDialog">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h2 class="dialog-title" id="dialogTitle">Add New Note</h2>
+                <button id="closeDialog" onClick="closeNoteDialog()" class="close-btn">X</button>
+            </div>
+        </div>
+            <form id="noteForm">
+        <div class="form-group">
+            <label for="noteTitle" class="form-label">Title:</label>
+            <textarea type="text" id="noteTitle" class="form-input" placeholder="Enter title here..." required></textarea>
+        </div>
+            </form>
+        <div class="form-group">
+            <label for="noteContent" class="form-label">Content:</label>
+            <textarea id="noteContent" class="form-input" placeholder="Enter note content here..." required></textarea>
+        </div>
+        <div class="dialog-ac">
+            <button type="button" class="cancel-btn" onClick="closeNoteDialog()"> Cancel </button>
+            <button type="submit" class="save-btn"> Save Note </button>
+        </div>
+    </dialog>
+</body>
+</html>
